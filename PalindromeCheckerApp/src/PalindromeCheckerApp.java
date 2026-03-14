@@ -5,7 +5,7 @@ public class PalindromeCheckerApp {
         // Hardcoded string
         String word = "madam";
 
-        // Variable to store reversed string
+        // Variable to store reversed stringe
         String reversed = "";
 
         // Reverse the string

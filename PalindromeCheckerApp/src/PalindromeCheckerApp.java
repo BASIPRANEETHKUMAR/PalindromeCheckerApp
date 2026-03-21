@@ -1,23 +1,25 @@
-// PalindromeCheckerApp.java
-
-public class PalindromeCheckerApp {
-
+public class PalindromeCheckUC2 {
     public static void main(String[] args) {
+        String str = "madam";
 
-        // Welcome Message
-        System.out.println("=====================================");
-        System.out.println("        PALINDROME CHECKER APP       ");
-        System.out.println("=====================================");
+        char[] chars = str.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
+        boolean isPalindrome = true;
 
-        // Application Details
-        System.out.println("Application Name : Palindrome Checker App");
-        System.out.println("Version          : 1.0");
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
 
-        // Startup Message
-        System.out.println("-------------------------------------");
-        System.out.println("Application started successfully.");
-        System.out.println("Ready for palindrome processing...");
-        System.out.println("-------------------------------------");
-
+        if (isPalindrome) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a Palindrome");
+        }
     }
 }

@@ -1,24 +1,35 @@
+import java.util.*;
+
 public class PalindromeCheckerApp {
-
-    static boolean isPalindrome(String str, int start, int end) {
-        // Base condition
-        if (start >= end)
-            return true;
-
-        // Check mismatch
-        if (str.charAt(start) != str.charAt(end))
-            return false;
-
-        // Recursive call
-        return isPalindrome(str, start + 1, end - 1);
-    }
-
     public static void main(String[] args) {
-        String str = "racecar";
+        Scanner sc = new Scanner(System.in);
 
-        if (isPalindrome(str, 0, str.length() - 1))
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+
+        // Normalize: remove spaces & convert to lowercase
+        str = str.replaceAll("\\s+", "").toLowerCase();
+
+        int left = 0;
+        int right = str.length() - 1;
+        boolean isPalindrome = true;
+
+        // Two-pointer comparison
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+
+        // Output
+        if (isPalindrome)
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
+
+        sc.close();
     }
 }
